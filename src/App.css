@@ -1,38 +1,128 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "navigation_bar main"
+    "footer footer";
+  grid-template-rows: auto 1fr 6rem;
+  grid-template-columns: 12rem 1fr;
   min-height: 100vh;
+}
+
+.opacity-2 {
+  opacity: 0.4;
+}
+
+.opacity-3 {
+  opacity: 0.6;
+}
+
+.header {
+  grid-area: header;
+}
+
+.main {
+  grid-area: main;
+}
+
+.navigation_bar {
+  grid-area: navigation_bar;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding-top: 2rem;
+}
+
+.nav-item{
+  padding-bottom: 3rem;
+}
+
+/* .products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-gap: 0.2rem;
+} */
+
+.products {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+.product {
+  flex: 1 1 18rem;
+  margin: 0.2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.footer {
+  grid-area: footer;
+}
+
+.hr-header-line {
+  margin: 25px auto 30px;
+  padding: 0;
+  width: 100px;
+  border: 0;
+  border-top: solid 6px;
+  border-color: #6366F2;
+  opacity: 1;
+}
+
+.hr-footer-line {
+  margin: 25px auto 30px;
+  padding: 0;
+  width: 300px;
+  border: 0;
+  border-top: solid 2px;
+  border-color: #3e3f97;
+  opacity: 1;
+}
+
+.bg-color {
+  background-color: #111828;
+}
+
+.text-color-1 {
+  color: #8183ff;
+}
+
+@media(max-width:1200px){
+  .navigation_bar {
+    grid-area: navigation_bar;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 0rem;
   }
-  to {
-    transform: rotate(360deg);
+  .nav-item{
+    padding-bottom: 0rem;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+      "header "
+      "navigation_bar"
+      "main"
+      "footer";
+    grid-template-rows: auto 4rem 1fr 6rem;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+  }
+}
+
+@media(max-width:900px){
+  .navigation_bar {
+    display: none;
+  }
+  .nav-item{
+    padding-bottom: 0rem;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+      "header "
+      "main"
+      "footer";
+    grid-template-rows: auto 1fr 6rem;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
   }
 }
